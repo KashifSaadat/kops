@@ -1348,6 +1348,15 @@ func (in *DockerConfig) DeepCopyInto(out *DockerConfig) {
 		*out = make([]string, len(*in))
 		copy(*out, *in)
 	}
+	if in.UsernsRemap != nil {
+		in, out := &in.UsernsRemap, &out.UsernsRemap
+		if *in == nil {
+			*out = nil
+		} else {
+			*out = new(string)
+			**out = **in
+		}
+	}
 	if in.Version != nil {
 		in, out := &in.Version, &out.Version
 		if *in == nil {

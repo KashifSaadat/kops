@@ -637,6 +637,8 @@ func (b *DockerBuilder) buildContainerOSConfigurationDropIn(c *fi.ModelBuilderCo
 		"[Service]",
 		"EnvironmentFile=/etc/sysconfig/docker",
 		"EnvironmentFile=/etc/environment",
+		"ExecStartPre=/usr/bin/touch /etc/subuid",
+		"ExecStartPre=/usr/bin/touch /etc/subgid",
 	}
 	contents := strings.Join(lines, "\n")
 

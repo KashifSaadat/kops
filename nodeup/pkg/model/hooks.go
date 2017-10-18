@@ -148,6 +148,7 @@ func (h *HookBuilder) buildDockerService(unit *systemd.Manifest, hook *kops.Hook
 		"-v", "/run/systemd:/run/systemd",
 		"--net=host",
 		"--privileged",
+		"--userns=host",
 	}
 	dockerArgs = append(dockerArgs, buildDockerEnvironmentVars(hook.ExecContainer.Environment)...)
 	dockerArgs = append(dockerArgs, hook.ExecContainer.Image)
